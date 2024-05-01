@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="data"  [ngClass]="{'rightText': left, 'leftText floatRight': !left}" #elem [ngStyle]="getOpacityAnimation(calcPercentVisible(elem))">
+        <h2>{{experience.type == 'Education' ? experience.name : experience.position}}</h2>
+        <br>
+        <h3 *ngIf="experience.type != 'Education'">{{experience.type == 'Education' ? experience.name : experience.company}}</h3>
+        <br *ngIf="experience.type != 'Education'">
+        <h3 class="mat-gray">{{experience.startDate.display + ' - ' + (experience.finishDate ? experience.finishDate.display : 'Present')}}</h3>
+        <br *ngIf="experience.type == 'Profession'">
+        <br *ngIf="experience.type == 'Profession'">
+        <br>
+        <p *ngIf="experience.type == 'Profession'">{{experience.description}}</p>
+        <p [hidden]="experience.type == 'Profession'" class="fullWidth noMargin" *ngFor="let concern of experience.concern;">{{concern}}</p>
+    </div>
+    <div class="line" #elem [ngStyle]="getOpacityAnimation(calcPercentVisible(elem))"></div>
+    <div class="badge" #elem [ngStyle]="getOpacityAnimation(calcPercentVisible(elem))">
+        <mat-icon>{{experience.type == 'Education' ? 'school' : 'work'}}</mat-icon>
+    </div>
+    <div *ngIf='navigationService.screenSize != Constants.SCREEN_SIZE_SMALL' class="arrow"  [ngClass]="{'right': left, 'left': !left}" #elem [ngStyle]="getOpacityAnimation(calcPercentVisible(elem))">
+        {{experience.startDate.display + ' - ' + (experience.finishDate ? experience.finishDate.display : 'Present')}}
+        <div class="carrot"[ngClass]="{'right': left, 'left': !left}" > </div>
+    </div>
+</div>

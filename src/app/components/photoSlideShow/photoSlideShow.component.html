@@ -1,0 +1,7 @@
+<div class="entire_container" #slider id="slider">
+<!--    <div class="shadow shadow&#45;&#45;top" ></div>-->
+<!--    <div class="shadow shadow&#45;&#45;bottom"></div>-->
+    <div class='behind_container'>
+        <img *ngFor="let image of images; let index = index" class="image" (click)="$event.stopPropagation(); selectImage(index)" [src]='image' class="hover"/>
+    </div>
+</div>
